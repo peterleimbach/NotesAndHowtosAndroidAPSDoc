@@ -37,3 +37,41 @@ The comment functionaltity is very good.
 I use **Gwenview** for resizing the images.
 
 ![Gwenview](gwenview.png)
+
+# setting up a local sphinx environment
+
+export WORKDIR=$HOME/work/tryrun
+rm -rf $WORKDIR
+mkdir $WORKDIR
+cd $WORKDIR
+git clone https://github.com/peterleimbach/AndroidAPSdocs.git
+python -m venv .venv 
+source .venv/bin/activate 
+cd .venv
+
+# besser wäre, aber die Versionen sind sehr alt pip install -r requirements.txt
+pip install --upgrade pip
+pip install sphinx
+pip install myst_parser
+pip install recommonmark
+pip install sphinx_rtd_theme
+
+mkdir docs
+cp -r ../AndroidAPSdocs/docs/EN docs/source
+
+cp -r ../AndroidAPSdocs/docs/_static/ docs
+cp -r ../AndroidAPSdocs/docs/_templates docs
+
+cp ../AndroidAPSdocs/docs/drawing.png docs
+cp ../AndroidAPSdocs/docs/favicon.ico docs
+
+cp $HOME/work/preparemigration/.venv/docs/Makefile $WORKDIR/.venv/docs
+cp $HOME/work/preparemigration/.venv/docs/shared.conf.py $WORKDIR/.venv/docs
+
+cp $HOME/work/preparemigration/.venv/docs/source/conf.py $WORKDIR/.venv/docs/source
+
+cd docs
+make html
+
+cd build/html
+python3 -m http.server

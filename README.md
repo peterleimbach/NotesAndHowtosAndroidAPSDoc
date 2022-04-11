@@ -40,6 +40,7 @@ I use **Gwenview** for resizing the images.
 
 # setting up a local sphinx environment
 
+```
 export WORKDIR=$HOME/work/tryrun
 rm -rf $WORKDIR
 mkdir $WORKDIR
@@ -48,8 +49,11 @@ git clone https://github.com/peterleimbach/AndroidAPSdocs.git
 python -m venv .venv 
 source .venv/bin/activate 
 cd .venv
+```
 
 ## besser wäre, aber die Versionen sind sehr alt pip install -r requirements.txt
+
+```
 pip install --upgrade pip
 pip install sphinx
 pip install myst_parser
@@ -75,6 +79,8 @@ make html
 
 cd build/html
 python3 -m http.server
+```
+
 
 # setting up qtile window manager
 

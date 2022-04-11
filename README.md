@@ -49,7 +49,7 @@ python -m venv .venv
 source .venv/bin/activate 
 cd .venv
 
-# besser wäre, aber die Versionen sind sehr alt pip install -r requirements.txt
+## besser wäre, aber die Versionen sind sehr alt pip install -r requirements.txt
 pip install --upgrade pip
 pip install sphinx
 pip install myst_parser
@@ -75,3 +75,50 @@ make html
 
 cd build/html
 python3 -m http.server
+
+# setting up qtile window manager
+
+The configuration file is located in ~/.config/qtile/config.py.
+
+A quick startup is via the [arch linux wiki](https://wiki.archlinux.org/title/Qtile).
+
+The official documentation can be found [here](http://docs.qtile.org/en/stable/).
+
+## To change the hjkl-keys for the normal arrow keys.
+
+```
+Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
+Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
+Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
+Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
+Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+# Move windows between left/right columns or move up/down in current stack.
+# Moving out of range in Columns layout will create new column.
+Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
+Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
+Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
+Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
+# Grow windows. If current window is on the edge of screen and direction
+# will be to screen edge - window would shrink.
+Key([mod, "control"], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
+Key([mod, "control"], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
+Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
+Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
+Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+```
+
+## To add short keys to start some handy tools.
+
+```
+Key([mod, "shift"], "a", lazy.spawn("atom")),
+Key([mod, "shift"], "c", lazy.spawn("code")),
+Key([mod, "shift"], "d", lazy.spawn("discord")),
+Key([mod, "shift"], "e", lazy.spawn("kate")),
+Key([mod, "shift"], "f", lazy.spawn("firefox")),
+Key([mod, "shift"], "g", lazy.spawn("github-desktop")),
+Key([mod, "shift"], "h", lazy.spawn("st -f 'Liberation Mono:size=18' -e htop", shell = True)),
+Key([mod, "shift"], "k", lazy.spawn("ksnip")),
+Key([mod, "shift"], "r", lazy.spawn("retext")),
+Key([mod, "shift"], "q", lazy.spawn("st -f 'Liberation Mono:size=18' -e vi $HOME/.config/qtile/config.py", shell = True)),
+Key([mod, "shift"], "v", lazy.spawn("vlc"))
+```

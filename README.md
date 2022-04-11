@@ -84,7 +84,7 @@ A quick startup is via the [arch linux wiki](https://wiki.archlinux.org/title/Qt
 
 The official documentation can be found [here](http://docs.qtile.org/en/stable/).
 
-## To change the hjkl-keys for the normal arrow keys.
+## To change the hjkl-keys to the normal cursor keys
 
 ```
 Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
@@ -107,7 +107,7 @@ Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
 Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 ```
 
-## To add short keys to start some handy tools.
+## To add short keys to start tools for daily use
 
 ```
 Key([mod, "shift"], "a", lazy.spawn("atom")),

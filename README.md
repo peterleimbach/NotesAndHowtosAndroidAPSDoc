@@ -3,7 +3,13 @@
 Here I will document the tools I use to  work on the AndroidAPS documentation.
  
 ## operating system
-I use **Manjaro Linux 21.2.5**. It's not important but there the tools are available und work very well.
+I use **arch linux** with the **qtile** window manager.
+
+It's not important but there are my tools available und work very well.
+
+The window manager has some benefits if you work with several open windows in parallel and want to setup a fixed window setup with maximized size of the windows on the individual screen.
+
+You can switch very fast between several virtual window groups. One group for development, one for web browsing, one for github, etc..
 
 ## Github
 I use **Github Desktop** to handle the communication with Github.

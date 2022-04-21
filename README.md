@@ -87,7 +87,6 @@ cd build/html
 python3 -m http.server
 ```
 
-
 # setting up qtile window manager
 
 The configuration file is located in ~/.config/qtile/config.py.
@@ -134,3 +133,55 @@ Key([mod, "shift"], "r", lazy.spawn("retext")),
 Key([mod, "shift"], "q", lazy.spawn("st -f 'Liberation Mono:size=18' -e vi $HOME/.config/qtile/config.py", shell = True)),
 Key([mod, "shift"], "v", lazy.spawn("vlc"))
 ```
+
+# Prepare migration from rst to md
+
+## setting up environment
+
+### adding extension myst-parser to conf.py
+```
+extensions = ["myst_parser"]
+```
+
+### enable the colon_fence extension in conf.py
+```
+myst_enable_extensions = [
+  "colon_fence",
+]
+```
+
+### setting the html_theme
+html_theme = 'sphinx_rtd_theme'
+
+# New syntax for md files
+
+## table of content
+```
+:::{toctree}
+:caption: One Link
+:glob: true
+:maxdepth: 1
+
+My Link <link.md>
+:::
+```
+## Notes
+```
+:::{admonition} Peters Note
+:class: note
+
+This is a note.
+:::
+```
+
+![Note](notes.png)
+
+## Warnings
+```
+:::{admonition} Peters Warning
+:class: warning
+
+This is a warning.
+:::
+```
+![Danger](dangerwarning.png)

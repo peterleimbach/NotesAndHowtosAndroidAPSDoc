@@ -10,7 +10,7 @@ For every language an own RTD project has to be created to enable the easy switc
 
 Therefore in step 2 we make the project known to RTD.
 
-RTD needs a config file docs/CROWDIN/<lnag_code>/conf.py which has to be created by copying this file from another **`<lang_code>`**. This is not translated in Crowdin as it is technical configuration.
+RTD needs a config file docs/CROWDIN/**`<lang_code>`**/conf.py which has to be created by copying this file from another **`<lang_code>`**. This is not translated in Crowdin as it is technical configuration.
 
 Therefore in step 1 we copy the conf.py file into the new **`<lang_code>`** folder.
 We change the order because it is better to be prepared when definig the project in RTD as we then can directly run the Build manually in RTD to check if the configuration file is right before we start it remotely via the Github action.
@@ -22,7 +22,9 @@ These are
 2. Build Warnings and 
 3. finally the Trigger RTD Build which start the build on the RTD side.
 
-This is done in the final step 3.
+This is done in the step 3.
+
+And last but not least we have to change the Readme.md to add a row to 
 
 ## the concrete steps to perfrom
 
@@ -96,3 +98,6 @@ Add a trigger to build files  (Info https://docs.readthedocs.io/en/stable/webhoo
     2. Update use the token name create above. secrets.RTD_WEBHOOK_KEY_**`<lang_code>`**
 
     3. Update URL section https://readthedocs.org/api/v2/webhook/androidaps-**`<lang_code>`**/<instance_id>/
+    
+#### Update Readme.md
+In the Readme.md file a new row for  **`<lang_code>`** is to be added to the Doc Status table.

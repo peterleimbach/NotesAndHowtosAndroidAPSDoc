@@ -6,7 +6,7 @@ The markdown (rst) files which are translated via Crowdin are already available 
 
 "Read the Docs" (aka RTD) must now be able to build the html-files out of theses files und serve them to the readers on request.
 
-For every language an own RTD project has to be created to enable the easy switching with the langugae switcher when you are reading the AndroidAPSDocs.
+For every language an own RTD project has to be created to enable the easy switching with the language switcher when you are reading the AndroidAPSDocs.
 
 Therefore in step 2 we make the project known to RTD.
 

@@ -52,6 +52,8 @@ exec (open("../../shared.conf.py").read())
 
     Language: <Lang>
 
+    After the import go to the advanced settings of the project and add the Python Configuration file.
+    
     Advanced Settings: Python configuration file:  docs/CROWDIN/**`<lang_code>`**/conf.py
 
 ### Link the main site to the translation site in RTD

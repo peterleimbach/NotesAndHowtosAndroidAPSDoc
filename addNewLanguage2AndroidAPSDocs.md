@@ -30,7 +30,7 @@ And last but not least we have to change the Readme.md to add a row to
 
 ### Add configuration file for translation: (open a PR)
 Copy https://github.com/openaps/AndroidAPSdocs/blob/master/docs/CROWDIN/de/conf.py
-To https://github.com/openaps/AndroidAPSdocs/blob/master/docs/CROWDIN/**`<lang_code>`**/conf.py
+To https://github.com/openaps/AndroidAPSdocs/blob/master/docs/CROWDIN/`**<lang_code>`**/conf.py
 
 It's a very small file but necessary.
 

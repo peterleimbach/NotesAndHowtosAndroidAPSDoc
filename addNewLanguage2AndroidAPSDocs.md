@@ -42,7 +42,7 @@ exec (open("../../shared.conf.py").read())
 
 ### Define the project in RTD
 
-1. In project from https://readthedocs.org/dashboard/ "Import Project", "Import Mannualy"
+1. In project from https://readthedocs.org/dashboard/ "Import Project", "Import Manualy"
 
 2. https://readthedocs.org/dashboard/import/manual/?
 

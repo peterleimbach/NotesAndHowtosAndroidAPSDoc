@@ -1,3 +1,11 @@
+# Crowdin
+
+Issues in Crowdin can be listed and edited under the languages overview dashboard per language.
+
+![Overview of existing issues](CrowdinIssueOverview.png)
+
+In addition, you receive a mail that someone has created an issue and can directly work on that.
+
 # howtodocument
 
 Here I will document the tools I use to  work on the AndroidAPS documentation.

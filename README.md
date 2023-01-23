@@ -193,3 +193,19 @@ This is a warning.
 :::
 ```
 ![Danger](dangerwarning.png)
+
+# Status Quo der Files in den Translations aufnehmen für die weitere Darstellung in OpenOffice oder Google Sheets
+find .  \( -name "*.rst" -o -name "*.md" \) -type f -print | sed -E 's/\.\// /g' | sed -E 's/\// /' | sed -E 's/\./ /g'
+
+# Status Quo der Verzeichnisse unter Crowdin
+
+## Anzahl pro Sprache
+for i in `ls -1` ; do echo -n $i " " ; find $i -type d | wc -l; done
+
+## Verzeichnisnamen selbst pro Sprache
+for i in `ls -1` ; do echo -n $i " " ; find $i -type d ; done
+
+# nützliche shell commandos
+
+## das images Verzeichnis für alle Sprachen in images.BACKUP umbenennen
+for i in `ls -1`; do mv $i/images $i/images.BACKUP ; done

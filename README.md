@@ -208,4 +208,7 @@ for i in `ls -1` ; do echo -n $i " " ; find $i -type d ; done
 # nützliche shell commandos
 
 ## das images Verzeichnis für alle Sprachen in images.BACKUP umbenennen
+```
 for i in `ls -1`; do mv $i/images $i/images.BACKUP ; done
+```
+

@@ -218,3 +218,13 @@ for i in `ls -1` ; do echo -n $i " " ; find $i -type d ; done
 for i in `ls -1`; do mv $i/images $i/images.BACKUP ; done
 ```
 
+# Version von AndrodiAPS in der Dokumentation anpassen
+Die Version wird in shared.conf.py angepasst.
+Dort sind zwei Einträge anzupassen.
+
+```
+# The short X.Y version.
+version = u'3.1'
+# The full version, including alpha/beta/rc tags.
+release = u'3.1'
+```

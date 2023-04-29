@@ -20,6 +20,7 @@ This results on my pc at $HOME/GitHub/AndroidAPSDocs
 ## Step 2: create a virtual test python environment
 
 $ python -m venv $HOME/dev/AndroidAPSDocs/.venv
+
 $ source $HOME/dev/AndroidAPSDocs/.venv/bin/activate 
 
 Important: Now my virutal python environment is active and I can use it as long as I don't close this terminal. If I need to restart the machine e.g. next day. I need to execute the source command again to set the virutal environment again!

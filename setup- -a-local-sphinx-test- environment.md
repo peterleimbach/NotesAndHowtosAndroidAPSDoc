@@ -50,4 +50,5 @@ It's best to start this in a seperate terminal environment because it does not n
 Therefore just cd in the html directory with the generated html files and start the http server.
 
 $ cd $HOME/dev/AndroidAPSDocs/html
+
 $ python3 -m http.server 

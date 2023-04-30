@@ -2,7 +2,7 @@
 
 ## prerequiteries
 
-Th documentation was written on a Linux pc with python 3 installed.
+The documentation was written on a Linux pc with python 3 installed.
 
 It should run on Windows and Mac very simliar but the author uses Linux.
 
@@ -41,7 +41,7 @@ $ python -m pip install --exists-action=w --no-cache-dir -r $HOME/Dokumente/GitH
 
 $ python -m sphinx -T -E -b html -d $HOME/dev/AndroidAPSDocs/_build/doctrees -D language=en $HOME/Dokumente/GitHub/AndroidAPSdocs/docs/EN $HOME/dev/AndroidAPSDocs/html
 
-## start a local http server to serve your generate html files
+## start a local http server to serve your generated html files
 
 The easiest way to do this is to use the build in python http server.
 

@@ -62,3 +62,80 @@ $ cd $HOME/dev/AndroidAPSDocs/html
 
 $ python3 -m http.server 
 ```
+
+
+# Additional notes for windoz users... 
+I got it to work fairly well by using git bash so we can use the same commands on windows/linux/mac... I am also enabling autobuild which allow changes saved to get reflected almost immediately in your browser...  
+
+## pre-requisites (20-45 minutes?)
+tested on windows 11
++ install git bash https://gitforwindows.org/ 
++ install tortoise git https://tortoisegit.org/download/
++ install python3 &  pip
++ install Visual Studio Code from https://code.visualstudio.com/ 
++ there are gazillions of plugins for visual studio code, you want to install the followings:
+    + python Name: Python https://marketplace.visualstudio.com/items?itemName=ms-python.python
+    + Name: MyST-Markdown  https://marketplace.visualstudio.com/items?itemName=ExecutableBookProject.myst-highlight
+    + Name: Markdown All in One https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
+
+## First Time SETUP  (15 minutes):
+1. Select your folders in windows
+
++ Select 1 folder to store the local git repository copy where the source files will be edited we will call it **aaps_local_sources** (I used C:\AAPSDOC2\local_sources) 
++  1 folder to store the actual html web site for testing we will call it **aaps_local_web**  (I used C:\AAPSDOC2\local_web)...  
+
+<br>
+
+
+2. start a git bash window and set your folders values
+
+    note that with git bash, 'C:' becomes '/c'  and your windows '\\' become '/'
+    ```sh
+    cd ~
+    echo aaps_local_sources="/c/AAPSDOC2/local_sources" >> .bash_profile
+    echo aaps_local_web="/c/AAPSDOC2/local_web/AndroidAPSDocs" >> .bash_profile
+    
+    ```
+3. (in the same git bash window) create the folders, git local repo, python venv,  and install sphinx/myst/autobuild
+    ``` sh
+    . .bash_profile
+    echo alias aapscode="'source  $aaps_local_web/.venv/Scripts/activate  && code $aaps_local_sources/AndroidAPSdocs/'" >> .bash_profile
+    echo alias aapsbuild="'source  $aaps_local_web/.venv/Scripts/activate  && sphinx-autobuild --open-browser  --port 8004 $aaps_local_sources/AndroidAPSdocs/docs/EN/ $aaps_local_web/'"  >> .bash_profile
+
+    . .bash_profile
+    echo "creating the source and target webserver folders"
+    mkdir -p $aaps_local_sources  $aaps_local_web
+
+    echo "coling the git repo"
+    cd $aaps_local_sources
+    git clone https://github.com/openaps/AndroidAPSdocs.git
+    
+    echo "creating the python virtual env and installing stuffs"
+    python -m venv $aaps_local_web/.venv    
+    source  $aaps_local_web/.venv/Scripts/activate  ||    source $aaps_local_web/.venv/bin/activate
+    cd $aaps_local_web
+    python -m pip install --upgrade --no-cache-dir pip "setuptools<58.3.0"
+    python -m pip install --upgrade --no-cache-dir pillow "mock==1.0.1" "alabaster>=0.7,<0.8,!=0.7.5" "commonmark==0.9.1" "recommonmark==0.5.0" "sphinx<2" "sphinx-rtd-theme<0.5" "readthedocs-sphinx-ext<2.3" "jinja2<3.1.0"
+    python -m pip install --exists-action=w --no-cache-dir -r $aaps_local_sources/AndroidAPSdocs/requirements.txt
+    python -m pip install sphinx-autobuild
+
+    echo "building the first time with sphinx"
+    python -m sphinx -T -E -b html -d $aaps_local_web/_build/doctrees -D language=en $aaps_local_sources/AndroidAPSdocs/docs/EN $aaps_local_web/html
+
+
+    ```
+
+## to work on MD documents and see the results locally *almost* right away... 
+4. open a git bash window and run:
+    ```sh
+        aapscode  
+        # this will open VisualStudioCode on the top folder of your source, then you can open files under AndroidAPS/docs/EN/
+
+        appsbuild 
+        # this will start a mini web server with a local copy of the built files. they get refreshed automatically everytime you save a file in visual studio code (it takes a few seconds though...)
+
+    ```
+
+
+
+

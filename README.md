@@ -6,6 +6,18 @@ Issues in Crowdin can be listed and edited under the languages overview dashboar
 
 In addition, you receive a mail that someone has created an issue and can directly work on that.
 
+# resizing images
+
+Screenshots for mobile should have 400px horizontal size.
+
+To concert a folder with png images to 400px in subfolder 400px you can use the following command.
+
+The subfolder needs to be exist before you use the command.
+
+``` script
+for i in *.png ; do convert $i -resize 400 400px/$i ; done 
+```
+
 # howtodocument
 
 Here I will document the tools I use to  work on the AndroidAPS documentation.
